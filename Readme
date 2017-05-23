@@ -1,0 +1,10 @@
+libfatchars - low level UTF-8 library
+
+int sizeoffatc(int); - returns the character size by head byte
+int rsizeoffatc(int); - returns the characrer size by code point
+int ismodifierfatc(int); - check for modifiers ranges
+int decodefatc(int, int, int, int, int); - decode character bytes
+int fgetfatc(FILE *); - reads the UTF-8 character from stream
+int nextfatc(FILE *); - jumps to next UTF-8 character in stream
+int nextvisfatc(FILE *); - jumps to next visible UTF-8 character in stream
+int fputfatc(int, FILE *); - puts the UTF-8 character into stream
