@@ -1,13 +1,21 @@
+ifeq ($(prefix),)
+        prefix=/usr
+endif
+ifeq ($(shell which $(CC)),)
+        CC=gcc
+endif
+ifeq ($(libdir),)
+        libdir=$(prefix)/lib
+endif
 all:
-	gcc -c -fPIC -Wall -O2 -o fatchars.o fatchars.c
-	gcc -fPIC -Wall -shared -O2 -o libfatchars.so fatchars.o
+        $(CC) -c -fPIC $(CFLAGS) -o libfatchars.o libfatchars.c
+        $(CC) -fPIC -shared $(CFLAGS) -o libfatchars.so.1 libfatchars.o
+	ln -s libfatchars.so.1 libfatchars.so
 install:
-	mkdir /usr/include/fatchars
-	cp libfatchars.so /usr/lib/
-	cp fatchars.h /usr/include/fatchars
+	install -pDm644 libfatchars.so $(DESTDIR)$(libdir)/libcamell++.so
+	install -pDm644 libfatchars.so.1 $(DESTDIR)$(libdir)/libcamell++.so.1
+	install -pDm644 fatchars.h $(DESTDIR)$(prefix)/include/fatchars/fatchars.h
 clean:
-	rm fatchars.o libfatchars.so example
-uninstall:
-	rm -r /usr/include/fatchars /usr/lib/libfatchars.so
+	rm fatchars.o libfatchars.so libfatchars.so.1 example
 example:
-	gcc -o example example.c -lfatchars
+	$(CC) -o example example.c -lfatchars

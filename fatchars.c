@@ -1,7 +1,7 @@
 /*
- * libfatchars v0.5 - lowlevel UTF-8 library
- * 2017 (c) Artem Kurashov <mail@saahriktu.org>
- * underg GNU GPLv3
+ * libfatchars v0.6 - lowlevel UTF-8 library
+ * 2017-2024 (c) Artem Kurashov
+ * under GNU GPLv3
  */
 
 #include <stdio.h>
