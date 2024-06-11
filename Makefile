@@ -8,8 +8,8 @@ ifeq ($(libdir),)
         libdir=$(prefix)/lib
 endif
 all:
-        $(CC) -c -fPIC $(CFLAGS) -o libfatchars.o libfatchars.c
-        $(CC) -fPIC -shared $(CFLAGS) -o libfatchars.so.1 libfatchars.o
+	$(CC) -c -fPIC $(CFLAGS) -o libfatchars.o libfatchars.c
+	$(CC) -fPIC -shared $(CFLAGS) -o libfatchars.so.1 libfatchars.o
 	ln -s libfatchars.so.1 libfatchars.so
 install:
 	install -pDm644 libfatchars.so $(DESTDIR)$(libdir)/libcamell++.so

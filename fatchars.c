@@ -1,5 +1,5 @@
 /*
- * libfatchars v0.6 - lowlevel UTF-8 library
+ * libfatchars v0.7 - lowlevel UTF-8 library
  * 2017-2024 (c) Artem Kurashov
  * under GNU GPLv3
  */
