@@ -8,7 +8,7 @@ ifeq ($(libdir),)
         libdir=$(prefix)/lib
 endif
 all:
-	$(CC) -c -fPIC $(CFLAGS) -o libfatchars.o libfatchars.c
+	$(CC) -c -fPIC $(CFLAGS) -o libfatchars.o fatchars.c
 	$(CC) -fPIC -shared $(CFLAGS) -o libfatchars.so.1 libfatchars.o
 	ln -s libfatchars.so.1 libfatchars.so
 install:
